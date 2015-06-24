@@ -86,7 +86,7 @@ public class GameTest {
 		Player wp = mock(Player.class);
 		House wh = mock(House.class);
 	    Game wg = new Game(wp, wh);
-	    
+	    when(wh.getCurrentRoomInfo()).thenReturn("TESTWIN");
 	    when(wp.drink()).thenReturn(true);
 	    
 	    int result = wg.run();
@@ -105,6 +105,7 @@ public class GameTest {
 		House lh = mock(House.class);
 	    Game lg = new Game(lp, lh);
 	    
+	     when(lh.getCurrentRoomInfo()).thenReturn("TESTLose");
 	    when(lp.drink()).thenReturn(false);
 	    
 	    int result = lg.run();
